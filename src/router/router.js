@@ -5,6 +5,8 @@ import Vue from "vue";
 import Home from '../containers/Home/Home.vue'      //首页
 import CourseSheet from '../containers/CourseSheet/CourseSheet.vue'   //课程表
 import MealCard from '../containers/MealCard/MealCard.vue'   //课程表
+import Group from '../containers/Group/Group.vue'   //社团
+import FillGroup from '../containers/FillGroup/FillGroup.vue'   //申请社团
 import Personal from '../containers/Personal/Personal.vue'   //个人中心
 import DetailAcount from '../containers/DetailAcount/DetailAcount.vue'   //每日详情
 import Circle from '../containers/Circle/Circle.vue'   //课程表
@@ -13,7 +15,6 @@ import NewKnowlage from  '../components/NewKnowlage/NewKnowlage.vue'  //新视�
 import Daily from  '../components/Daily/Daily.vue'    //  日常
 import Library from  '../components/Library/Library.vue'    //图书馆
 import Bill from  '../components/Bill/Bill.vue'             //账单
-import Group from  '../components/Group/Group.vue'          //社团
 import Activity from  '../components/Activity/Activity.vue'   //活动
 import Task from  '../components/Task/Task.vue'               //任务
 import List from  '../components/List/List.vue'               //好友列表
@@ -59,8 +60,10 @@ const routes = [
   {path:"/detailacount",component:DetailAcount},
   {path:"/payfor",component:PayFor},
   {path:"/personal",component:Personal},
+  {path:"/fillgroup",component:FillGroup},
+  {path:"/group",component:Group},
   // {path:'/news',component: News,name:"news"},
-  {path:'/*',component: DetailAcount},    //如果找不到路由就默认首页
+  {path:'/*',component: FillGroup},    //如果找不到路由就默认首页
 ]
 
 //3.实例化vueRouter

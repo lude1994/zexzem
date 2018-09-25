@@ -6,6 +6,12 @@ import 'mint-ui/lib/style.min.css'    //引入ui组件的css
 import router from './router/router.js' //路由页面
 import './assets/css/basic.scss'        //引入基础样式
 import "./assets/font/iconfont.css";    //引入字体图标
+// 引入echarts
+import echarts from 'echarts'
+
+Vue.prototype.$echarts = echarts
+
+import  'echarts/lib/echarts/'
 
 
 

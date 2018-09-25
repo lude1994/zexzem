@@ -2,6 +2,14 @@
     <div class="homepage">
       <home-header></home-header>
       <div class="mainnav">
+        <div class="weather">
+          <img src="../../assets/img/weather.jpg" alt="">
+          <div class="desc">
+            <span>32℃ 晴</span>
+            <span>有雾霾，注意安全</span>
+          </div>
+
+        </div>
         <div class="nav">
           <i></i>
           <span>扫一扫</span>
@@ -20,7 +28,7 @@
         </div>
       </div>
       <div class="coursesheet">
-        <mt-swipe :auto="0" :show-indicators="false">
+        <mt-swipe :auto="0">
           <mt-swipe-item v-for="item in navList">
             <div class="line line1">
               <span class="status">{{item.status}}</span>
@@ -40,7 +48,7 @@
           </mt-swipe-item>
         </mt-swipe>
       </div>
-      <div class="border-line"></div>
+      <!--<div class="border-line"></div>-->
       <div class="dolist">
         <div class="listnav">
           <span class="iconfont icon-saoma"></span>
@@ -93,25 +101,55 @@
         </div>
 
       </div>
-      <h1 class="groupknow">
-        长知识
-      </h1>
-      <div class="routernav">
-        <router-link to="/home/intro">推荐</router-link>
-        <router-link to="/home/gonggao">校公告</router-link>
-        <router-link to="/home/today">今日</router-link>
-        <router-link to="/home/near">附近</router-link>
+      <div class="group">
+        <div class="title">惠支付</div>
+        <div class="line"></div>
+        <div class="con">
+          <div class="mincon">
+            <div class="left1">
+              <h2>全场包邮</h2>
+              <span>1元抢好货</span>
+            </div>
+            <img src="../../assets/img/weather.jpg" alt="">
+          </div>
+          <div class="mincon">
+            <div class="left1">
+              <h2>全场包邮</h2>
+              <span>1元抢好货</span>
+            </div>
+            <img src="../../assets/img/weather.jpg" alt="">
+          </div>
+        </div>
       </div>
-      <div class="view">
-        <router-view></router-view>
+      <div class="group group2">
+        <div class="title">惠支付</div>
+        <div class="line"></div>
+        <div class="con">
+          <div class="mincon">
+            <div class="left1">
+              <h2>全场包邮</h2>
+              <span>1元抢好货</span>
+            </div>
+            <img src="../../assets/img/weather.jpg" alt="">
+          </div>
+          <div class="mincon">
+            <div class="left1">
+              <h2>全场包邮</h2>
+              <span>1元抢好货</span>
+            </div>
+            <img src="../../assets/img/weather.jpg" alt="">
+          </div>
+        </div>
       </div>
+      <!--<v-footer></v-footer>-->
+
     </div>
 </template>
 
 <script>
   import HomeHeader from '../../components/HomeHeader/HomeHeader.vue'
   import NewKnowlage from '../../components/NewKnowlage/NewKnowlage.vue'
-
+  import VFooter from '../../components/Footer/Footer.vue'
     export default {
         name: "Home",
       data(){
@@ -135,9 +173,13 @@
             ],   //工告
           }
       },
+      methods: {
+
+      },
       components:{
         HomeHeader,
-        NewKnowlage
+        NewKnowlage,
+        VFooter
       }
     }
 </script>
@@ -146,9 +188,11 @@
 
 
   .homepage{
-    background: #34425e;
+    background: url("../../assets/img/bg3.jpg") no-repeat;
+    background-size: 100% 100%;
+    padding-bottom: 11vh;
     .mainnav{
-
+      position: relative;
       width: 85%;
       padding: 7vh 0;
       display: flex;
@@ -159,6 +203,24 @@
       margin: 0 auto;
       margin-top: 2vh;
       box-shadow: 0 0 47px #eee;
+      .weather{
+        position: absolute;
+        top: -24px;
+        margin-left: -16vw;
+        left: 50%;
+        display: flex;
+        align-items: center;
+        img{
+          width: 50px;
+          /*height: 50px;*/
+        }
+        .desc{
+          display: flex;
+          flex-direction: column;
+          margin-left: 10px;
+          /*text-align: center;*/
+        }
+      }
       .nav{
         display: flex;
 
@@ -167,9 +229,10 @@
       }
     }
     .coursesheet{
-      margin-top: 7vh;
-      /*background: blue;*/
-      height: 20vh;
+      margin-top: 5vh;
+      /*background: linear-gradient(to right,#CEEFFD,#618CE4 );*/
+      border-radius: 10px 10px 0 0;
+      height: 23vh;
       .line{
         display: flex;
         justify-content: space-between;
@@ -203,6 +266,8 @@
     .dolist{
       display: flex;
       flex-wrap: wrap;
+      /*background: linear-gradient(to right, #CEEFFD, #618CE4);*/
+      border-radius: 10px 10px 0 0;
       .listnav{
         width: 25%;
         padding: 3vh 0;
@@ -258,7 +323,6 @@
       background: rgba(255,255,255,.2);
     }
     .scrollinfo{
-      width: 90vw;
       overflow-x: auto;
       margin: 0 auto;
       padding: 4vh 0;
@@ -267,8 +331,8 @@
         white-space: nowrap;
         border-radius: 20px;
         .infolist{
-          width: 45vw;
-          height: 15vh;
+          width: 39vw;
+          height: 11vh;
           background: url("../../assets/img/weather.jpg") no-repeat;
           background-size: 100% 100%;
           box-shadow: 5px 5px 10px #fff;
@@ -280,26 +344,54 @@
       }
 
     }
-    .groupknow{
-      text-align: center;
-      color: #fff;
-      margin-top: 3vh;
-      margin-bottom: 2vh;
+
+    .group2{
+      margin-top: 10px;
     }
-    .routernav{
-      width: 96%;
-      margin: 0 auto;
-      font-size: 4vw;
-      padding: 2vh 0;
-      a{
-        color: #fff;
+    .group{
+      /*background: green;*/
+      overflow: hidden;
+      .title{
+        padding-left: 10px;
+        border-left: 4px solid #2FA1FA;
+        margin-left: 20px;
+        font-size: 14px;
+        /*color: #eee;*/
+        margin-bottom: 10px;
+        margin-top: 10px;
       }
-    }
-    .view{
-      width: 96%;
-      margin: 0 auto;
-      margin-top: 2vh;
-      height: auto;
+      .line{
+        height: 1px;
+        width: 100%;
+        background: #fff;
+      }
+      .con{
+        display: flex;
+        border-bottom: 1px solid #fff;
+        .mincon{
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          width: 50%;
+          padding: 20px 0;
+          &:nth-child(1){
+            border-right: 1px solid #fff;
+            box-sizing: border-box;
+          }
+          .left1{
+            text-align: center;
+            /*margin: 0 auto;*/
+            span{
+              color: #999;
+            }
+
+          }
+          img{
+            width: 100px;
+            height: 50px;
+          }
+        }
+      }
     }
   }
 </style>
